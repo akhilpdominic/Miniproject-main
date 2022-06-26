@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miniproject/screens/MapScreen.dart';
 import 'package:miniproject/screens/infopage.dart';
 import 'package:miniproject/screens/ticket_disp.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
