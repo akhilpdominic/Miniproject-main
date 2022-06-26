@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:miniproject/screens/infopage.dart';
+import 'package:miniproject/screens/ticket_disp.dart';
+import 'package:number_inc_dec/number_inc_dec.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,12 +18,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
+      home: ticket_disp());
+      /*Scaffold(
         body: SafeArea(
-          child: 
-          Expanded(
-            
-            child: Container(
+          child:  Container(
           
           color: Colors.white30,
           width: double.infinity,
@@ -32,14 +33,15 @@ class MyApp extends StatelessWidget {
 
           child: Column(
             
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
 
             children: [
-              Container(
-                child: Column(
+
+               Column(
                   children: [
-                    Text('Boarding point',
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.blue),
+
+                    Text('Boarding pont',
+              style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.blue),
               ),
               Container(margin: EdgeInsets.symmetric(
                 horizontal: 60,
@@ -50,7 +52,7 @@ class MyApp extends StatelessWidget {
               
               
                   ],
-                ),
+                
               ),
               
               Text('Destination',
@@ -66,24 +68,70 @@ class MyApp extends StatelessWidget {
               child: TextField(decoration: InputDecoration(hintText: 'Enter destination point',))
 ,
             ),
-            Container(
-              child:
-              Row(
-                children: [
-                  Container( margin: EdgeInsets.all(70),
-child:Text('adult',style: TextStyle(fontSize: 30),),),
-Container(child:Text('child',style: TextStyle(fontSize: 30),),),
 
-                                  ],
-              )
+             
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: 55,
+                vertical: 50
+              ),
+              child:  Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.all(5),
+                  width: 120,
+                  color: Colors.white,
+                  
+                  child: Column(                  
+                  children: [
+                    Text('ADULT',style: TextStyle(fontSize: 25),),
+                    NumberInputPrefabbed.roundedButtons(
+                    controller: TextEditingController(),
+                    incDecBgColor: Colors.blue,
+                    buttonArrangement: ButtonArrangement.incRightDecLeft,
+                    ),                    
+                  ],
+                ),),
+
+                Container(
+                  
+                  margin: EdgeInsets.all(5),
+
+                  width: 120,
+                  color: Colors.blue,
+                  
+                  child: Column(  
+                                    
+                  children: [
+                    Text('CHILD',style: TextStyle(fontSize: 25),),
+                    NumberInputPrefabbed.roundedButtons(
+                    controller: TextEditingController(),
+                    incDecBgColor: Colors.blue,
+                    buttonArrangement: ButtonArrangement.incRightDecLeft,
+                    ),                    
+                  ],
+                ),)
+                
+              ],
+            ),
             )
+           ,
+
+            OutlinedButton(           
+              style: OutlinedButton.styleFrom(
+                primary: Colors.black,
+                backgroundColor: Colors.blue[300],
+              minimumSize: Size(300,70),
+              textStyle: const TextStyle(fontSize: 20,color: Colors.white),
+              ),
+              onPressed: null, child: Text("Proceed")),
+
 
             ],
           ),
         ))
         ),
-      ),
     );
-    
+    */
   }
 }
