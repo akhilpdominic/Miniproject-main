@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miniproject/screens/ticket_disp.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
 
 
@@ -136,10 +137,21 @@ class _infopageState extends State<infopage> {
                 style: OutlinedButton.styleFrom(
                 primary: Colors.black,
                 backgroundColor: Colors.blue[300],
+                
                 minimumSize: Size(300,55),
-                textStyle: const TextStyle(fontSize: 20,color: Colors.white),
+                textStyle: const TextStyle(fontSize: 20,color: Colors.white,),
                 ),
-                onPressed: null, child: Text("Proceed")),
+                
+                onPressed: ()
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (context) => ticket_disp())
+                  );
+
+                }, 
+                child: Text("Proceed")),
                 )
                 
                 ],

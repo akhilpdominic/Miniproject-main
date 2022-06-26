@@ -17,7 +17,7 @@ class _ticket_dispState extends State<ticket_disp> {
         
             width: double.infinity,
             height: double.infinity,
-            color: Colors.blue[50],
+            color: Color.fromARGB(255,198, 220, 228),
 
             child: Stack(
               children: [
@@ -44,11 +44,110 @@ class _ticket_dispState extends State<ticket_disp> {
                     ),    
                   ),
 
-                 const SizedBox(
+                 SizedBox(
                   width: 200.0,
-                  height: 200.0,
-                  child: Card(child: Text('Hello World!')),
+                  height: 160.0,
+                  child: Card(
+                    color: Color.fromARGB(255, 218, 234, 241),
+                    child: 
+                    Column(
+                      children: [
+                         Text('Rs 25',style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                    ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(
+                        top:30
+                      ),
+                      child: Text('Adults : 2',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),),
+                    ),
+
+                     Container(
+                      margin: EdgeInsets.symmetric(
+                        vertical:10
+                      ),
+                      child: Text('Children : 2',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),),
+                    ),
+                    
+                      ],
+                    )
+                   ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top:20),
+                  child: 
+                  SizedBox(
+                      width: 200,
+                      height: 160,
+                      child: Card(
+                        color: Color.fromARGB(255, 218, 234, 241),
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(
+                                top: 17,
+                              ),
+                              child: Text('Boarding point',
+                            style: TextStyle(fontSize: 20),),
+                            ),
+
+                            Container(
+                              margin: EdgeInsets.only(
+                                top: 17,
+                              ),
+                              child: Image(image: 
+                              AssetImage('/Users/akhilpdominic/Desktop/Doc/Miniproject-main/assets/back_arrow.png'),
+                              width: 20,
+                              height: 20,),
+                            ),
+
+                            Container(
+                              margin: EdgeInsets.only(
+                                top: 17,
+                              ),
+                              child: Text('Destination point',
+                            style: TextStyle(fontSize: 20),),
+                            ),
+
+                            
+
+                          ],
+                        ),
+                      ),
+                    ),
+                ),
+
+
+                Container(
+                  margin: EdgeInsets.only(
+                    top: 180,
+                    right: 0
+
+                  ),
+                  
+
+                  child: OutlinedButton(           
+                style: OutlinedButton.styleFrom(
+                primary: Colors.black,
+                backgroundColor: Colors.blue[300],
+                minimumSize: Size(300,55),
+                textStyle: const TextStyle(fontSize: 20,color: Colors.black),
+                ),
+                onPressed: null,
+                child: Text("Scan & Pay",style: 
+                TextStyle(color: Colors.black),)),
                 )
+                 
                 ],
                 )
               ],
