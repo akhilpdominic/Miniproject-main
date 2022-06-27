@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:miniproject/screens/MapScreen.dart';
 import 'package:miniproject/screens/infopage.dart';
+import 'package:miniproject/screens/login.dart';
 import 'package:miniproject/screens/ticket_disp.dart';
+import 'package:miniproject/screens/welcome.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
 
 void main() {
@@ -19,6 +21,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const infopage());        
+      home: const login());        
   }
 }
