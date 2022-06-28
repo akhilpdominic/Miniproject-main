@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miniproject/screens/login.dart';
 
 class welcome extends StatefulWidget {
   const welcome({ Key? key }) : super(key: key);
@@ -55,7 +56,15 @@ class _welcomeState extends State<welcome> {
                   minimumSize: Size(300,55),
                   textStyle: const TextStyle(fontSize: 20,color: Colors.black),
                   ),
-                  onPressed: null,
+                  onPressed: ()
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (context) => login())
+                  );
+
+                }, 
                   child: Text("Get Started",style: 
                   TextStyle(color: Colors.white),)),
               ),

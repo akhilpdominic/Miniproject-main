@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miniproject/screens/infopage.dart';
 
 class login extends StatefulWidget {
   const login({ Key? key }) : super(key: key);
@@ -53,7 +54,15 @@ class _loginState extends State<login> {
                   minimumSize: Size(300,55),
                   textStyle: const TextStyle(fontSize: 20,color: Colors.black),
                   ),
-                  onPressed: null,
+                  onPressed: ()
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (context) => infopage())
+                  );
+
+                }, 
                   child: Text("Register",style: 
                   TextStyle(color: Colors.white),)),
               ),
