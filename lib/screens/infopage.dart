@@ -1,19 +1,36 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:miniproject/screens/ticket_disp.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
-
+import 'package:miniproject/dbStops.dart';
 
 
 class infopage extends StatefulWidget {
-  const infopage({ Key? key }) : super(key: key);
+  String bus_no;
+  infopage(this.bus_no);
+
 
   @override
   State<infopage> createState() => _infopageState();
 }
 
 class _infopageState extends State<infopage> {
+
+  final bController = TextEditingController();
+  final dController = TextEditingController();
+  final adultController = TextEditingController();
+  final childController = TextEditingController();
+
+  
+
   @override
   Widget build(BuildContext context) {
+
+
+  //final Stream<QuerySnapshot> stops=FirebaseFirestore.instance.collection('stops').snapshots();
+
+    var bus_id=widget.bus_no;
+
     return Scaffold(
         body: SafeArea(
           child: Container(
@@ -29,25 +46,8 @@ class _infopageState extends State<infopage> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                      right:290,
-                      top:0,
-                      bottom: 70
-                    ),  
-                    
-                    child:InkWell(
-                      onTap: ()
-                      {
-                        Navigator.pop(context);
-                      },
-                      child:Padding(
-                      padding: EdgeInsets.all(24),
-                      child: Image(image: AssetImage('/Users/akhilpdominic/todo/assets/images/back_arrow_icon.png'),
-                ),
-                    ),
-                    ),    
-                  ),
+                 
+                  Text('Bus no  : $bus_id'),
 
                   Container(
                     margin: EdgeInsets.symmetric(
@@ -60,7 +60,8 @@ class _infopageState extends State<infopage> {
                         style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.blue),
                         ),
 
-                        TextField(decoration: InputDecoration(hintText: 'Enter starting point',)),
+                        TextField(decoration: InputDecoration(hintText: 'Enter starting point',),
+                        controller: bController),
 
                       ],
                     )
@@ -78,7 +79,8 @@ class _infopageState extends State<infopage> {
                         style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.blue),
                         ),
 
-                        TextField(decoration: InputDecoration(hintText: 'Enter destination point',)),
+                        TextField(decoration: InputDecoration(hintText: 'Enter destination point',),
+                        controller: dController,),
 
                       ],
                     )
@@ -96,7 +98,7 @@ class _infopageState extends State<infopage> {
                       children: [
                         Text('ADULT',style: TextStyle(fontSize: 25),),
                     NumberInputPrefabbed.roundedButtons(
-                    controller: TextEditingController(),
+                    controller: adultController,
                     incDecBgColor: Colors.blue,
                     buttonArrangement: ButtonArrangement.incRightDecLeft,
                     ),        
@@ -115,7 +117,7 @@ class _infopageState extends State<infopage> {
                       children: [
                         Text('CHILD',style: TextStyle(fontSize: 25),),
                     NumberInputPrefabbed.roundedButtons(
-                    controller: TextEditingController(),
+                    controller: childController,
                     incDecBgColor: Colors.blue,
                     buttonArrangement: ButtonArrangement.incRightDecLeft,
                     ),        
@@ -142,12 +144,44 @@ class _infopageState extends State<infopage> {
                 textStyle: const TextStyle(fontSize: 20,color: Colors.white,),
                 ),
                 
-                onPressed: ()
+                onPressed: () async
                 {
+
+                    //print(stops);
+
+                  //Firestore
+
+                 /*StreamBuilder<QuerySnapshot>(
+                  stream: stops,
+                 builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) 
+                 {
+                    if(snapshot.hasError)
+                    {
+                      print("Something went wrong");
+                    }
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      print("Loading");
+                    }
+
+                    final data=snapshot.requireData;
+                                        print("hello ji");
+
+                    return ListView.builder(itemCount: data.size,
+                    itemBuilder: (context,index)
+                    {
+                      print("PLace is ${data.docs[index]['name']} and the distance is ${data.docs[index]['distance']}");
+                      return Text("PLace is ${data.docs[index]['name']} and the distance is ${data.docs[index]['distance']}");
+                    },);
+                 },);*/
+
+
+                  //
+                 var a=await Stopdatabase(bController.text,dController.text,int.parse(adultController.text),int.parse(childController.text));
+                  //var b=a.toString();
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                    builder: (context) => ticket_disp())
+                    builder: (context) => ticket_disp(bController.text,dController.text,adultController.text,childController.text,a.toString()))
                   );
 
                 }, 

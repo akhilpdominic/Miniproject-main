@@ -25,7 +25,7 @@ class _welcomeState extends State<welcome> {
                   top: 100
                 ),
                 child: Image(image: 
-          AssetImage('/Users/akhilpdominic/Desktop/Doc/Miniproject-main/assets/etick1.png')),
+          AssetImage('assets/etick1.png')),
               ),
         
               Container(

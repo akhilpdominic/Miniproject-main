@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:miniproject/authMain.dart';
+import 'package:miniproject/screens/homepage.dart';
 import 'package:miniproject/screens/infopage.dart';
 
 class login extends StatefulWidget {
@@ -23,7 +25,7 @@ class _loginState extends State<login> {
                 margin: EdgeInsets.only(
                   top: 200
                 ),
-                child: Image(image: AssetImage('/Users/akhilpdominic/Desktop/Doc/Miniproject-main/assets/etick1.png',
+                child: Image(image: AssetImage('assets/etick1.png',
                 ))
 ,
               ),
@@ -39,7 +41,15 @@ class _loginState extends State<login> {
                   minimumSize: Size(300,55),
                   textStyle: const TextStyle(fontSize: 20,color: Colors.black),
                   ),
-                  onPressed: null,
+                  onPressed: ()
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (context) => authMain())
+                  );
+
+                }, 
                   child: Text("Login",style: 
                   TextStyle(color: Colors.white),)),
               ),
@@ -59,7 +69,7 @@ class _loginState extends State<login> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                    builder: (context) => infopage())
+                    builder: (context) => homePage())
                   );
 
                 }, 
