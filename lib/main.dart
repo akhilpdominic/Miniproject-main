@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SplashScreen(
-        seconds: 2,
+        seconds: 3,
         navigateAfterSeconds:welcome(),
         title: new Text(
           'E-Tick',

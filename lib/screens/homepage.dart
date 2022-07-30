@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:miniproject/screens/barcodeHomepage.dart';
 import 'package:miniproject/screens/infopage.dart';
+import 'package:flutter/cupertino.dart';
+
 
 class homePage extends StatefulWidget {
   const homePage({ Key? key }) : super(key: key);
@@ -62,8 +64,10 @@ class _homePageState extends State<homePage> {
                           color: Color.fromARGB(255, 229, 189, 243),
                           borderRadius: BorderRadius.circular(13)
                         ),
-                        child: Icon(Icons.airplane_ticket,
-                        size: 100,),
+                        child: Icon(CupertinoIcons.tickets,
+                        color: Color.fromARGB(255, 0, 0, 0), 
+      size: 125,)
+,
                       
                       ),
                     ),
@@ -77,7 +81,7 @@ class _homePageState extends State<homePage> {
                           color: Color.fromARGB(255, 229, 189, 243),
                           borderRadius: BorderRadius.circular(13)
                         ),
-                        child: Icon(Icons.history,
+                        child: Icon(Icons.logout,
                         size: 100,),
                                          ),
                      ),
