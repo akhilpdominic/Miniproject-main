@@ -18,21 +18,21 @@ Widget build(BuildContext context) {
 	body: Container(
 		width: MediaQuery.of(context).size.height,
 		height: MediaQuery.of(context).size.height,
-    color: Color.fromARGB(255, 124, 202, 241),
+    color: Color.fromARGB(255, 255, 255, 255),
 		child: Column(
 		mainAxisAlignment: MainAxisAlignment.center,
 		crossAxisAlignment: CrossAxisAlignment.stretch,
 		children: [
-			//Display Image
-			Image(image: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQyYwscUPOH_qPPe8Hp0HAbFNMx-TxRFubpg&usqp=CAU")),
+			//Display Gif
+			Image.network('https://cdn.dribbble.com/users/93467/screenshots/1197117/media/8d5442190f4cd2bf6869fe108b112d54.gif'),
 			
-      Center(child: Text('Please scan the QR code\nto book your tickets',style: 
-      TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
-      OutlinedButton(           
+      Center(child: Text('Please scan the QR code\n\tto book your tickets\n\n\n\n',style: 
+      TextStyle(color: Color.fromARGB(255, 0, 0, 0),fontWeight: FontWeight.bold),)),
+      OutlinedButton(        
                   style: OutlinedButton.styleFrom(
                   primary: Colors.black,
                   backgroundColor: Colors.orange[900],
-                  minimumSize: Size(300,55),
+                  minimumSize: Size(100,55),
                   textStyle: const TextStyle(fontSize: 20,color: Colors.black),
                   ),
                   onPressed: ()
