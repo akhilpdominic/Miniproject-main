@@ -36,8 +36,8 @@ class _infopageState extends State<infopage> {
         body: SafeArea(
           child: Container(
             margin: EdgeInsets.only(
-              top: 6,
-              bottom: 6           
+              top: 0,
+              bottom: 0           
             ),
             width: double.infinity,
             height: double.infinity,
