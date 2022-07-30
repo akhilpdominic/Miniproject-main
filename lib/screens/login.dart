@@ -14,11 +14,12 @@ class _loginState extends State<login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
           width: double.infinity,
           height: double.infinity,
-          color: Colors.blue[100],
+          color:Colors.blue[100],
           child: Column(
             children: [
               Container(

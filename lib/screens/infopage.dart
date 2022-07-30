@@ -32,6 +32,7 @@ class _infopageState extends State<infopage> {
     var bus_id=widget.bus_no;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Container(
             margin: EdgeInsets.only(

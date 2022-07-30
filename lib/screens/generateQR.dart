@@ -14,6 +14,7 @@ String qrCodeResult = "Please scan the QR code!";
 @override
 Widget build(BuildContext context) {
 	return Scaffold(
+  resizeToAvoidBottomInset: false,
 	appBar: AppBar(
 		title: Text("Scan QR Code"),
 	),

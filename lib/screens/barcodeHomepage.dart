@@ -14,7 +14,7 @@ class _HomePageState extends State<barcodeHomepage> {
 @override
 Widget build(BuildContext context) {
 	return Scaffold(
-	
+	resizeToAvoidBottomInset: false,
 	body: Container(
 		width: MediaQuery.of(context).size.height,
 		height: MediaQuery.of(context).size.height,
