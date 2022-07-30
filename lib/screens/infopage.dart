@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:miniproject/firebaseFetcher.dart';
 import 'package:miniproject/screens/ticket_disp.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
 import 'package:miniproject/dbStops.dart';
@@ -28,6 +29,16 @@ class _infopageState extends State<infopage> {
 
 
   //final Stream<QuerySnapshot> stops=FirebaseFirestore.instance.collection('stops').snapshots();
+  //firebase
+
+
+ 
+
+
+
+
+
+  //firebase end
 
     var bus_id=widget.bus_no;
 
@@ -175,13 +186,26 @@ class _infopageState extends State<infopage> {
                  },);*/
 
 
+
                   //
-                 var a=await Stopdatabase(bController.text,dController.text,int.parse(adultController.text),int.parse(childController.text));
+                 //var a=await Stopdatabase(bController.text,dController.text,int.parse(adultController.text),int.parse(childController.text));
+                 
+                 int s=await getd(bController.text);
+                 int d=await getd(dController.text);
+
+                 int tot=(s-d).abs();
+                 int adult_price=int.parse(adultController.text)*tot;
+
+                  int child_price=(int.parse(childController.text)*tot)-2*int.parse(childController.text);
+
+                  int tot_price=adult_price+child_price;
+                  
+                  
                   //var b=a.toString();
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                    builder: (context) => ticket_disp(bController.text,dController.text,adultController.text,childController.text,a.toString()))
+                    builder: (context) => ticket_disp(bController.text,dController.text,adultController.text,childController.text,tot_price.toString(),bus_id,tot))
                   );
 
                 }, 

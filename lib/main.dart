@@ -6,14 +6,18 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:miniproject/authMain.dart';
 import 'package:miniproject/dbStops.dart';
+import 'package:miniproject/firestoreHelper.dart';
 import 'package:miniproject/firestoretest.dart';
+import 'package:miniproject/screens/alarmScreen.dart';
 import 'package:miniproject/screens/barcodeHomepage.dart';
+import 'package:miniproject/screens/endScreen.dart';
 import 'package:miniproject/screens/homepage.dart';
 import 'package:miniproject/screens/homescreen.dart';
 import 'package:miniproject/screens/infopage.dart';
 import 'package:miniproject/screens/login.dart';
 import 'package:miniproject/screens/mapscreen.dart';
 import 'package:miniproject/screens/ticket_disp.dart';
+import 'package:miniproject/screens/userProfile.dart';
 import 'package:miniproject/screens/welcome.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
 
@@ -38,6 +42,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: login());        
+      home: welcome());        
   }
 }

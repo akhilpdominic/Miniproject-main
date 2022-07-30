@@ -28,11 +28,12 @@ Widget build(BuildContext context) {
 			
       Center(child: Text('Please scan the QR code\nto book your tickets',style: 
       TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
+      SizedBox(height: 100,),
       OutlinedButton(           
                   style: OutlinedButton.styleFrom(
                   primary: Colors.black,
                   backgroundColor: Colors.orange[900],
-                  minimumSize: Size(300,55),
+                  fixedSize: Size(50, 55),
                   textStyle: const TextStyle(fontSize: 20,color: Colors.black),
                   ),
                   onPressed: ()

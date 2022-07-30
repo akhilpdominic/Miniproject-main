@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:miniproject/firebaseFetcher.dart';
+import 'package:miniproject/screens/alarmScreen.dart';
 
 
 class ticket_disp extends StatefulWidget {
@@ -9,8 +11,10 @@ class ticket_disp extends StatefulWidget {
   final String adult;
   final String child;
   final String total;
+  final String buscode;
+  final int timer;
 
-  const ticket_disp(this.board,this.dest,this.adult,this.child,this.total);
+  const ticket_disp(this.board,this.dest,this.adult,this.child,this.total,this.buscode,this.timer);
 
   @override
   State<ticket_disp> createState() => _ticket_dispState();
@@ -25,6 +29,7 @@ class _ticket_dispState extends State<ticket_disp> {
       String a=widget.adult;
       String c=widget.child;
       String t=widget.total;
+      String code=widget.buscode;
 
 
 
@@ -51,7 +56,7 @@ class _ticket_dispState extends State<ticket_disp> {
 
                  SizedBox(
                   width: 350.0,
-                  height: 260.0,
+                  height: 300.0,
                   child: Card(
                     color: Color.fromARGB(255, 218, 234, 241),
                     child: 
@@ -59,6 +64,13 @@ class _ticket_dispState extends State<ticket_disp> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: 40,),
+
+                         Text('    Bus no     :   $code',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),),
+                        SizedBox(height: 20,),
 
                         Text('    Boarding point     :   $b',
                     style: TextStyle(
@@ -145,6 +157,12 @@ class _ticket_dispState extends State<ticket_disp> {
                   ),
                   onPressed: ()
                   {
+                    
+                    addTicketdata(widget.board, widget.dest,widget.total);
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (context) => alert(widget.timer)));
                     //FirebaseAuth.instance.signOut();
 
                   },

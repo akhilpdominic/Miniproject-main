@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:miniproject/screens/login.dart';
 
@@ -11,6 +13,11 @@ class welcome extends StatefulWidget {
 class _welcomeState extends State<welcome> {
   @override
   Widget build(BuildContext context) {
+    Timer(
+    Duration(seconds: 3),
+    () =>
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+    builder: (BuildContext context) => login())));
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -45,29 +52,8 @@ class _welcomeState extends State<welcome> {
                 fontWeight: FontWeight.normal),),
               ),
               
-              Container(
-                margin: EdgeInsets.only(
-                  top: 200
-                ),
-                child: OutlinedButton(           
-                  style: OutlinedButton.styleFrom(
-                  primary: Colors.black,
-                  backgroundColor: Colors.blue[900],
-                  minimumSize: Size(300,55),
-                  textStyle: const TextStyle(fontSize: 20,color: Colors.black),
-                  ),
-                  onPressed: ()
-                {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                    builder: (context) => login())
-                  );
+              
 
-                }, 
-                  child: Text("Get Started",style: 
-                  TextStyle(color: Colors.white),)),
-              ),
                 
 
             ],

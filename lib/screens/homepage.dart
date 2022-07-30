@@ -1,9 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_alarm_clock/flutter_alarm_clock.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:miniproject/firestoretest.dart';
 import 'package:miniproject/screens/barcodeHomepage.dart';
 import 'package:miniproject/screens/infopage.dart';
+import 'package:miniproject/screens/userProfile.dart';
 
 class homePage extends StatefulWidget {
   const homePage({ Key? key }) : super(key: key);
@@ -16,6 +19,8 @@ class _homePageState extends State<homePage> {
   int _selectedIndex=0;
   @override
   Widget build(BuildContext context) {
+
+    String? uname=FirebaseAuth.instance.currentUser!.email;
     var size=MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
@@ -33,13 +38,13 @@ class _homePageState extends State<homePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 60,),
-                Text("Good Day\nAkhil",
+                Text("Have a great Day!",
                 style: TextStyle(
-                  fontSize: 50,
+                  fontSize: 40,
                   fontWeight: FontWeight.bold,
                 )),
 
-                SizedBox(height: 140,),
+                SizedBox(height: 120,),
 
                 
                 Expanded(
@@ -61,41 +66,76 @@ class _homePageState extends State<homePage> {
                           color: Color.fromARGB(255, 229, 189, 243),
                           borderRadius: BorderRadius.circular(13)
                         ),
-                        child: Icon(Icons.airplane_ticket,
-                        size: 100,),
+                        child: Column(
+                          children: [
+                            Icon(Icons.airplane_ticket,
+                            size: 100,),
+                            Text('Add Ticket')
+                          ],
+                        ),
                       
                       ),
                     ),
                      GestureDetector(
                        onTap: ()
                       {
-                        FirebaseAuth.instance.signOut();
+                         FlutterAlarmClock.showTimers();
+
                       },
                        child: Container(
                         decoration: BoxDecoration(
                           color: Color.fromARGB(255, 229, 189, 243),
                           borderRadius: BorderRadius.circular(13)
                         ),
-                        child: Icon(Icons.history,
-                        size: 100,),
+                        child: Column(
+                          children: [
+                            Icon(Icons.alarm_add,
+                            size: 100,),
+                            Text('Timer')
+                          ],
+                        ),
                                          ),
                      ),
-                     Container(
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 229, 189, 243),
-                        borderRadius: BorderRadius.circular(13)
-                      ),
-                      child: Icon(Icons.help,
-                      size: 100,),
-                    ),
-                     Container(
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 229, 189, 243),
-                        borderRadius: BorderRadius.circular(13)
-                      ),
-                      child: Icon(Icons.alarm_add,
-                      size: 100,),
-                    )
+                     GestureDetector(
+                      onTap: (() => {
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                        builder: (context) => firestoreTest()))
+                      }),
+                       child: Container(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 229, 189, 243),
+                          borderRadius: BorderRadius.circular(13)
+                        ),
+                        child: Column(
+                          children: [
+                            Icon(Icons.history,
+                            size: 100,),
+                            Text('Previous tickets')
+                          ],
+                        ),
+                                         ),
+                     ),
+                     GestureDetector(
+                      onTap: (() => {
+                        FirebaseAuth.instance.signOut()
+                      }),
+                       child: Container(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 229, 189, 243),
+                          borderRadius: BorderRadius.circular(13)
+                        ),
+                        child: Column(
+                          children: [
+                            Icon(Icons.signpost_outlined,
+                            size: 100,
+                            ),
+                            Text("Sign out")
+                          ],
+                        ),
+                                         ),
+                     )
                   ],),
                 )
 
@@ -135,6 +175,14 @@ class _homePageState extends State<homePage> {
                   text: 'Home',
                 ),
                 GButton(
+                  onPressed: ()
+                  {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                        builder: (context) => userProfile(uname!))
+                  );
+                  },
                   icon: Icons.person,
                   text: 'Profile',
                 ),

@@ -14,10 +14,9 @@ String qrCodeResult = "Please scan the QR code!";
 @override
 Widget build(BuildContext context) {
 	return Scaffold(
-	appBar: AppBar(
-		title: Text("Scan QR Code"),
-	),
 	body: Container(
+
+    color: Color.fromARGB(255, 124, 202, 241),
 		padding: EdgeInsets.all(20),
 	child: Column(
 	mainAxisAlignment: MainAxisAlignment.center,
@@ -25,9 +24,10 @@ Widget build(BuildContext context) {
 	children: [
 	//Message displayed over here
 	Text(
-		"Result",
-		style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+		"ETICK",
+		style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.bold,color: Colors.white),
 		textAlign: TextAlign.center,
+    
 	),
 	Text(
 		qrCodeResult,
@@ -37,12 +37,13 @@ Widget build(BuildContext context) {
 		textAlign: TextAlign.center,
 	),
 	SizedBox(
-		height: 20.0,
+		height: 100.0,
 	),
 
 	//Button to scan QR code
 	FlatButton(
-		padding: EdgeInsets.all(15),
+    color: Colors.orange,
+		padding: EdgeInsets.all(25),
 		onPressed: () async {
 		String codeSanner = await BarcodeScanner.scan(); 
     
@@ -55,11 +56,11 @@ Widget build(BuildContext context) {
 			qrCodeResult = codeSanner;
 		});
 		},
-		child: Text("Open Scanner",style: TextStyle(color: Colors.indigo[900]),),
+		child: Text("Open Scanner",style: TextStyle(color: Colors.white,fontSize: 25),),
 		//Button having rounded rectangle border
 		shape: RoundedRectangleBorder(
-		side: BorderSide(color: Colors.indigo),
-		borderRadius: BorderRadius.circular(20.0),
+		//side: BorderSide(color: Colors.white),
+		borderRadius: BorderRadius.circular(5.0),
 		),
 	),
 
