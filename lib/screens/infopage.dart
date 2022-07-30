@@ -4,155 +4,147 @@ import 'package:miniproject/screens/ticket_disp.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
 import 'package:miniproject/dbStops.dart';
 
-
 class infopage extends StatefulWidget {
   String bus_no;
   infopage(this.bus_no);
-
 
   @override
   State<infopage> createState() => _infopageState();
 }
 
 class _infopageState extends State<infopage> {
-
   final bController = TextEditingController();
   final dController = TextEditingController();
   final adultController = TextEditingController();
   final childController = TextEditingController();
 
-  
-
   @override
   Widget build(BuildContext context) {
+    //final Stream<QuerySnapshot> stops=FirebaseFirestore.instance.collection('stops').snapshots();
 
-
-  //final Stream<QuerySnapshot> stops=FirebaseFirestore.instance.collection('stops').snapshots();
-
-    var bus_id=widget.bus_no;
+    var bus_id = widget.bus_no;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-        body: SafeArea(
+      appBar: AppBar(
+        leading: IconButton(
+          icon:
+              Icon(Icons.arrow_back, color: Color.fromARGB(255, 255, 255, 255)),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+        title: Text("Enter Details"),
+      ),
+      body: SafeArea(
           child: Container(
-            margin: EdgeInsets.only(
-              top: 0,
-              bottom: 0           
-            ),
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.blue[50],
-
-            child: Stack(children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+        margin: EdgeInsets.only(top: 40, bottom: 15),
+        width: double.infinity,
+        height: double.infinity,
+        child: Stack(children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text('\n\nBus no  : $bus_id \n\n\n'),
+              Container(
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 50),
+                  child: Column(
+                    children: [
+                      TextFormField(
+                          decoration: InputDecoration(
+                            labelText: 'Boarding point',
+                            //errorText: 'Cannot be null',
+                            border: OutlineInputBorder(),
+                            prefixIcon: Icon(
+                              Icons.directions_bus,
+                            ),
+                          ),
+                          controller: bController),
+                    ],
+                  )),
+              Container(
+                  margin: EdgeInsets.symmetric(vertical: 30, horizontal: 50),
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        decoration: InputDecoration(
+                          labelText: 'Destination',
+                          // errorText: 'Cannot be null',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(
+                            Icons.location_pin,
+                          ),
+                        ),
+                        controller: dController,
+                      ),
+                    ],
+                  )),
+              Row(
                 children: [
-                 
-                  Text('Bus no  : $bus_id'),
-
                   Container(
-                    margin: EdgeInsets.symmetric(
-                      vertical: 30,
-                      horizontal: 70
-                    ), 
-                    child: Column(
-                      children: [
-                        Text('Boarding point',
-                        style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.blue),
-                        ),
-
-                        TextField(decoration: InputDecoration(hintText: 'Enter starting point',),
-                        controller: bController),
-
-                      ],
-                    )
-                  ),
-
-
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      vertical: 30,
-                      horizontal: 70
-                    ), 
-                    child: Column(
-                      children: [
-                        Text('Destination',
-                        style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.blue),
-                        ),
-
-                        TextField(decoration: InputDecoration(hintText: 'Enter destination point',),
-                        controller: dController,),
-
-                      ],
-                    )
-                  ),
-
-                 Row(
-                  children: [
-                    Container(
-                  margin: EdgeInsets.symmetric(
-                      vertical: 30,
-                      horizontal: 50
-                    ), 
+                    margin: EdgeInsets.symmetric(vertical: 30, horizontal: 50),
                     width: 110,
                     child: Column(
                       children: [
-                        Text('ADULT',style: TextStyle(fontSize: 25),),
-                    NumberInputPrefabbed.roundedButtons(
-                    controller: adultController,
-                    incDecBgColor: Colors.blue,
-                    buttonArrangement: ButtonArrangement.incRightDecLeft,
-                    ),        
+                       Text(
+                          'Adult\nCount',
+                          style: TextStyle(fontSize: 14),
+                        ),
+                        NumberInputPrefabbed.roundedButtons(
+                          controller: adultController,
+                          incDecBgColor: Colors.blue,
+                          buttonArrangement: ButtonArrangement.incRightDecLeft,
+                        ),
                       ],
                     ),
-                 ),
-
-
-                 Container(
-                  margin: EdgeInsets.symmetric(
-                      vertical: 30,
-                      horizontal: 00
-                    ), 
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 30, horizontal: 00),
                     width: 110,
                     child: Column(
                       children: [
-                        Text('CHILD',style: TextStyle(fontSize: 25),),
-                    NumberInputPrefabbed.roundedButtons(
-                    controller: childController,
-                    incDecBgColor: Colors.blue,
-                    buttonArrangement: ButtonArrangement.incRightDecLeft,
-                    ),        
+                       Text(
+                          'Child\nCount',
+                          style: TextStyle(fontSize: 14),
+                        ),
+                        NumberInputPrefabbed.roundedButtons(
+                          controller: childController,
+                          incDecBgColor: Colors.blue,
+                          buttonArrangement: ButtonArrangement.incRightDecLeft,
+                        ),
                       ],
                     ),
-                 )
-                  ],
-                 ),
-
-
-                Container(
-                  margin: EdgeInsets.only(
-                    top: 80,
-                    right: 0
-
+                  )
+                ],
+              ),
+               Container(
+                margin: EdgeInsets.symmetric(vertical: 15, horizontal: 70),
+                child: Text(
+                  '* Children of age group 6-12 require to buy\n child fare ticket (50% of Adult ticket Fare).',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    color: Color(0xFFDC3545),
+                    fontSize: 12,
+                    fontWeight: FontWeight.normal,
                   ),
-
-                  child: OutlinedButton(           
-                style: OutlinedButton.styleFrom(
-                primary: Colors.black,
-                backgroundColor: Colors.blue[300],
-                
-                minimumSize: Size(300,55),
-                textStyle: const TextStyle(fontSize: 20,color: Colors.white,),
                 ),
-                
-                onPressed: () async
-                {
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 80, right: 0),
+                child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      primary: Color.fromARGB(255, 255, 255, 255),
+                      backgroundColor: Colors.blue[300],
+                      minimumSize: Size(300, 55),
+                      textStyle: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                    onPressed: () async {
+                      //print(stops);
 
-                    //print(stops);
+                      //Firestore
 
-                  //Firestore
-
-                 /*StreamBuilder<QuerySnapshot>(
+                      /*StreamBuilder<QuerySnapshot>(
                   stream: stops,
                  builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) 
                  {
@@ -175,25 +167,29 @@ class _infopageState extends State<infopage> {
                     },);
                  },);*/
 
-
-                  //
-                 var a=await Stopdatabase(bController.text,dController.text,int.parse(adultController.text),int.parse(childController.text));
-                  //var b=a.toString();
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                    builder: (context) => ticket_disp(bController.text,dController.text,adultController.text,childController.text,a.toString()))
-                  );
-
-                }, 
-                child: Text("Proceed")),
-                )
-                
-                ],
+                      //
+                      var a = await Stopdatabase(
+                          bController.text,
+                          dController.text,
+                          int.parse(adultController.text),
+                          int.parse(childController.text));
+                      //var b=a.toString();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ticket_disp(
+                                  bController.text,
+                                  dController.text,
+                                  adultController.text,
+                                  childController.text,
+                                  a.toString())));
+                    },
+                    child: Text("Proceed")),
               )
-            ]),
-          )),
-      
+            ],
+          )
+        ]),
+      )),
     );
   }
 }
