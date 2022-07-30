@@ -46,7 +46,7 @@ class _ticket_dispState extends State<ticket_disp> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(height: 22,),
-                Text('Payment Summary',style: TextStyle(fontSize: 35,fontWeight: FontWeight.bold),),
+                Text('Payment Summary',style: TextStyle(fontSize: 35,fontWeight: FontWeight.bold, color: Color.fromARGB(255, 255, 255, 255),),),
                 SizedBox(height: 60,),
 
                  SizedBox(

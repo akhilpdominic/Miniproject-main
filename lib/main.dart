@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:splashscreen/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
@@ -35,10 +35,27 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'miniproject',
+      title: 'E-Tick',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: welcome());        
+      home: SplashScreen(
+        seconds: 2,
+        navigateAfterSeconds:welcome(),
+        title: new Text(
+          'E-Tick',
+          style: new TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20.0,
+              color: Colors.white),
+        ),
+        image: new Image.asset('assets/etick2.png'),
+        photoSize: 100.0,        
+        backgroundColor: Colors.blue,
+        styleTextUnderTheLoader: new TextStyle(),
+        loaderColor: Colors.white
+      )
+    );      
   }
 }
