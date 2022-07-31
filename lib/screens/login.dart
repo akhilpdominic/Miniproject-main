@@ -11,6 +11,7 @@ class login extends StatefulWidget {
 }
 
 class _loginState extends State<login> {
+  String a="";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,15 +67,25 @@ class _loginState extends State<login> {
                   ),
                   onPressed: ()
                 {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                    builder: (context) => homePage())
-                  );
+                  setState(() {
+                    a="Registration Disabled";
+                  });
+                  
 
                 }, 
                   child: Text("Register",style: 
                   TextStyle(color: Colors.white),)),
+              ),
+
+
+
+
+
+              Container(
+                margin: EdgeInsets.only(
+                  top: 25
+                ),
+                child: Text(a)
               ),
               
             ],

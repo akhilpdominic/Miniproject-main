@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:miniproject/firestoretest.dart';
 import 'package:miniproject/screens/barcodeHomepage.dart';
+import 'package:miniproject/screens/devInfo.dart';
 import 'package:miniproject/screens/infopage.dart';
 import 'package:miniproject/screens/userProfile.dart';
 
@@ -128,7 +129,7 @@ class _homePageState extends State<homePage> {
                         Navigator.push(
                         context,
                         MaterialPageRoute(
-                        builder: (context) => infopage("liko motors")))
+                        builder: (context) => devInfo()))
                         //FirebaseAuth.instance.signOut()
                       }),
                        child: Container(
@@ -138,10 +139,10 @@ class _homePageState extends State<homePage> {
                         ),
                         child: Column(
                           children: [
-                            Icon(Icons.signpost_outlined,
+                            Icon(Icons.developer_mode,
                             size: 100,
                             ),
-                            Text("Sign out")
+                            Text("Developer info")
                           ],
                         ),
                                          ),

@@ -47,10 +47,8 @@ class endpage extends StatelessWidget {
                   {
 
                     
-                    Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                    builder: (context) => authMain()));
+                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                    authMain()), (Route<dynamic> route) => false);
                     //FirebaseAuth.instance.signOut();
 
                   },
