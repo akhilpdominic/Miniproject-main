@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:miniproject/screens/bottomNav.dart';
 import 'package:miniproject/screens/homepage.dart';
 import 'package:miniproject/screens/infopage.dart';
 import 'package:miniproject/screens/login.dart';
@@ -21,7 +22,7 @@ class authMain extends StatelessWidget {
       {
           if(snapshot.hasData)
           {   
-            return homePage();
+            return bottomNav();
           }
           else
           {

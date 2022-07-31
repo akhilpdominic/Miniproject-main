@@ -59,7 +59,7 @@ class getFirestoredata extends StatelessWidget {
             );
           
         }
-        return Text('Done   ');
+        return Text('Loading..');
       }
       ));
   }

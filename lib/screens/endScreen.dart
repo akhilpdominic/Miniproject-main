@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:miniproject/authMain.dart';
+import 'package:miniproject/screens/bottomNav.dart';
 import 'package:miniproject/screens/homepage.dart';
 
 class endpage extends StatelessWidget {
@@ -43,10 +45,12 @@ class endpage extends StatelessWidget {
                   ),
                   onPressed: ()
                   {
+
+                    
                     Navigator.push(
                     context,
                     MaterialPageRoute(
-                    builder: (context) => homePage()));
+                    builder: (context) => authMain()));
                     //FirebaseAuth.instance.signOut();
 
                   },

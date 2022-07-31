@@ -16,12 +16,17 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends State<homePage> {
+  
+  
+
+
   int _selectedIndex=0;
   @override
   Widget build(BuildContext context) {
 
     String? uname=FirebaseAuth.instance.currentUser!.email;
     var size=MediaQuery.of(context).size;
+   
     return Scaffold(
       body: Stack(
         children: [
@@ -119,7 +124,12 @@ class _homePageState extends State<homePage> {
                      ),
                      GestureDetector(
                       onTap: (() => {
-                        FirebaseAuth.instance.signOut()
+
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                        builder: (context) => infopage("liko motors")))
+                        //FirebaseAuth.instance.signOut()
                       }),
                        child: Container(
                         decoration: BoxDecoration(
@@ -146,57 +156,7 @@ class _homePageState extends State<homePage> {
 
         ],
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 20,
-              color: Colors.black.withOpacity(.1),
-            )
-          ],
-        ),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
-            child: GNav(
-              rippleColor: Colors.grey[300]!,
-              hoverColor: Colors.grey[100]!,
-              gap: 20,
-              activeColor: Colors.black,
-              iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              duration: Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.grey[100]!,
-              color: Colors.black,
-              tabs: [
-                GButton(
-                  icon: Icons.home,
-                  text: 'Home',
-                ),
-                GButton(
-                  onPressed: ()
-                  {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                        builder: (context) => userProfile(uname!))
-                  );
-                  },
-                  icon: Icons.person,
-                  text: 'Profile',
-                ),
-              ],
-              selectedIndex: _selectedIndex,
-              onTabChange: (index) {
-                setState(() {
-                  _selectedIndex = index;
-                });
-              },
-            ),
-          ),
-        ),
-      ),
+
     
       
     );

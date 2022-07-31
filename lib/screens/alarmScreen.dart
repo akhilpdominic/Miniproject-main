@@ -57,7 +57,12 @@ class _alertState extends State<alert> {
                 child: Text('Yes'),
               ),
               MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (context) => endpage()));
+                },
                 child: Text('No'),
               ),
             ],

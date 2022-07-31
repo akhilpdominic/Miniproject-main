@@ -20,7 +20,9 @@ class _userProfileState extends State<userProfile> {
       body: SafeArea(
         
         child: Container(
-          color: Colors.blue[300],
+        
+        color: Color.fromARGB(255, 124, 202, 241)
+,
           child: Center(
             
             child: 
@@ -50,7 +52,8 @@ class _userProfileState extends State<userProfile> {
                     onPressed: ()
                     {
                       
-                         
+                       FirebaseAuth.instance.signOut();
+
 
 
                     },

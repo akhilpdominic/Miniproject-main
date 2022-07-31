@@ -126,7 +126,7 @@ class _ticket_dispState extends State<ticket_disp> {
                             fontWeight: FontWeight.w600,
                             fontSize: 20,
                           ),),
-                          Text(widget.total,style: TextStyle(
+                          Text('\u{20B9} '+widget.total,style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 30,
                             color: Colors.red[400]
