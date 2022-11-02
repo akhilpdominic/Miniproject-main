@@ -4,9 +4,7 @@ A Flutter mini-project.
 
 ## Screens
 
-<img src="https://user-images.githubusercontent.com/63664995/199535443-0e8ff9a0-38d7-401e-b26f-8484d1159c9e.jpg" width="200">
-<img src="https://user-images.githubusercontent.com/63664995/199535447-fac4f6a4-d9da-4bfb-baa1-d7379bf3713d.jpg" width="200">
-<img src="https://user-images.githubusercontent.com/63664995/199535449-4f640906-d1a4-4dc6-9624-118239f3c22c.jpg" width="200">
+<img src="https://user-images.githubusercontent.com/63664995/199535443-0e8ff9a0-38d7-401e-b26f-8484d1159c9e.jpg" width="200"> <img src="https://user-images.githubusercontent.com/63664995/199535447-fac4f6a4-d9da-4bfb-baa1-d7379bf3713d.jpg" width="200"> <img src="https://user-images.githubusercontent.com/63664995/199535449-4f640906-d1a4-4dc6-9624-118239f3c22c.jpg" width="200">
 <img src="https://user-images.githubusercontent.com/63664995/199535452-b7f1bc1e-864e-4dc6-9d9d-b4d1a932ff8c.jpg" width="200">
 <img src="https://user-images.githubusercontent.com/63664995/199535455-7ee3dcd1-7771-4458-af46-c73554c49275.jpg" width="200">
 <img src="https://user-images.githubusercontent.com/63664995/199535457-572328f4-9812-4881-b9ff-5bc5936d26bd.jpg" width="200">
