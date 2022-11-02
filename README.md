@@ -1,6 +1,11 @@
 # Bus Ticket Automation and Destination Alert Application
 
-A Flutter mini-project.
+A Flutter Mini-Project.
+
+As it’s the digital era we can use mobile devices to scan and pay for the ticket by using QR Code technology, making ticket purchasing automated.
+Passengers can login to their E-TICK account and can generate their ticket just by scanning the QRcode pasted in the bus, entering their locations(boarding point and destination) and doing the payment.
+
+An extra alert system that alerts the passenger while they approach their destination has been provided.
 
 ## Screens
 
