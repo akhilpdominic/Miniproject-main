@@ -1,16 +1,14 @@
 # Bus Ticket Automation and Destination Alert 
 
-A new Flutter mini-project.
+This flutter project was created as a miniproject as part of our univeristy curriculum. The project lets a passenger purchase tickets wothout the need of a bus conductor to collect money and distribute tickets. It reduces the use of paper and promotes the use of cashless payment methods.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+If you are new to flutter, here is a brief overview :
+Flutter is an app development framework by google that lets you develop applications easily. Its quite easy to get started with flutter, even if you dont have any previous experience with any of the app development frameworks.
 
-A few resources to get you started if this is your first Flutter project:
+For installing flutter in your local PC, use this article : https://docs.flutter.dev/get-started/install/windows
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+After setting up flutter, you could build some basic projects by referring some youtube channels like freecodecamp.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Happy learning 🥳
